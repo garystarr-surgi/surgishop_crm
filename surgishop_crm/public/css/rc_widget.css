@@ -1,0 +1,53 @@
+/**
+ * surgishop_crm/public/css/rc_widget.css
+ *
+ * Styles for the RingCentral Embeddable widget and injected dial buttons.
+ * The widget iframe is injected by adapter.js — we just fine-tune its position.
+ */
+
+/* ── Widget iframe position ───────────────────────────────────────────────── */
+/* adapter.js positions it fixed bottom-right by default.
+   Nudge it up slightly so it clears the Frappe desk bottom bar.           */
+#rc-widget-adapter-frame {
+  bottom: 20px !important;
+  right:  20px !important;
+  z-index: 9999 !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18) !important;
+  border-radius: 8px !important;
+}
+
+/* ── Manual dial buttons injected next to phone fields ───────────────────── */
+.rc-dial-btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  width:           26px;
+  height:          22px;
+  padding:         0;
+  font-size:       13px;
+  line-height:     1;
+  cursor:          pointer;
+  border:          1px solid #d1d8dd;
+  border-radius:   4px;
+  background:      #f8f9fa;
+  color:           #495057;
+  transition:      background 0.15s, border-color 0.15s;
+  flex-shrink:     0;
+  margin-left:     4px;
+}
+
+.rc-dial-btn:hover {
+  background:    #e8f4fd;
+  border-color:  #0073e6;
+}
+
+.rc-dial-btn:active {
+  background:    #cce4f7;
+}
+
+/* ── Frappe CRM Vue pages — phone field row layout ───────────────────────── */
+/* Frappe CRM uses a different DOM structure than ERPNext desk */
+.frappe-crm .rc-dial-btn {
+  margin-left: 6px;
+  vertical-align: middle;
+}
